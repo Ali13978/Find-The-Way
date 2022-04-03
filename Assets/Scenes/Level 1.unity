@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1648288711, guid: dc824a5e1bf78f748b2624122935865b, type: 3}
       propertyPath: NoOfPoints
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1648288711, guid: dc824a5e1bf78f748b2624122935865b, type: 3}
       propertyPath: ThrowForce

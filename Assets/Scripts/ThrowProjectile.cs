@@ -19,11 +19,12 @@ public class ThrowProjectile : MonoBehaviour
         for (int i = 0; i < NoOfPoints; i++)
         {
             Points[i] = Instantiate(PointPrefab, transform.position , Quaternion.identity);
+            Points[i].transform.SetParent(this.gameObject.transform);
         }
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
         Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ArrowPos = transform.position;

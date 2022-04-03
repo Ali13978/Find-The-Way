@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Points
+    uniqueID: 3119413987
+    locked: 0
   - name: Player
     uniqueID: 2583007725
     locked: 0
