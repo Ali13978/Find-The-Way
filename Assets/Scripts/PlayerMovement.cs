@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,14 +26,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGround();
-        Jump();
         Movement();
         FlipSprite();
     }
 
     private void Movement()
     {
-        float ControlThrow = Input.GetAxis("Horizontal");
+        float ControlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         Vector2 PlayerVelocity = new Vector2(ControlThrow*MovementSpeed, MyRigidBody.velocity.y);
         MyRigidBody.velocity = PlayerVelocity;
         bool IfPlayerHasHorizontalSpeed = Mathf.Abs(MyRigidBody.velocity.x) > Mathf.Epsilon;
@@ -60,14 +60,11 @@ public class PlayerMovement : MonoBehaviour
             OnGround = false;
         }
     }
-    private void Jump()
+    public void Jump()
     {
         if (!OnGround)
         { return; }
-        else if (Input.GetButtonDown("Jump"))
-        {
-            Vector2 JumpVelocity = new Vector2(0f, JumpSpeed);
-            MyRigidBody.velocity += JumpVelocity;
-        }
+        Vector2 JumpVelocity = new Vector2(0f, JumpSpeed);
+        MyRigidBody.velocity += JumpVelocity;
     }
 }

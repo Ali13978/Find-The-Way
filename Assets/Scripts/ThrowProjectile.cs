@@ -30,18 +30,14 @@ public class ThrowProjectile : MonoBehaviour
         Vector2 ArrowPos = transform.position;
         direction = MousePos - ArrowPos;
         FaceMouse();
-
-        if(Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
+        
         for (int i = 0; i < Points.Length; i++)
         {
             Points[i].transform.position = PointPosition( i *0.1f);
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         GameObject insProjectile = Instantiate(Projectile,transform.position,transform.rotation);
         insProjectile.GetComponent<Rigidbody2D>().velocity = transform.right * ThrowForce;
