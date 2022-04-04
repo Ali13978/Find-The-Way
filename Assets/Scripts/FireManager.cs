@@ -6,6 +6,7 @@ public class FireManager : MonoBehaviour
 {
     [SerializeField] float Power = 10f;
     [SerializeField] float MaxDrag = 5f;
+    [SerializeField] GameObject Projectile;
     
     Rigidbody2D ProjectileRigidBody;
     LineRenderer lr;
@@ -58,7 +59,13 @@ public class FireManager : MonoBehaviour
     void DragRelease()
     {
         lr.positionCount = 0;
-        
-    }
 
+        Vector3 dragReleasePos = Camera.main.ScreenToWorldPoint(touch.position);
+        DragStartPos.z = 0f;
+
+        Vector3 force = DragStartPos - dragReleasePos;
+        Vector3 clampedForce = Vector3.ClampMagnitude(force, MaxDrag) * Power;
+        GameObject Apple = Instantiate(Projectile,transform.position,Quaternion.identity);
+        Apple.GetComponent<Rigidbody2D>().AddForce(clampedForce, ForceMode2D.Impulse);
+    }
 }

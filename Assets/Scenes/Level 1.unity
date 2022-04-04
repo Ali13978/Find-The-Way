@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3096652582140288561, guid: dc824a5e1bf78f748b2624122935865b, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 2465833003479916138, guid: f8095d9f29d65bf4fbe953c782fb6062, type: 3}
     - target: {fileID: 6334771558688327773, guid: dc824a5e1bf78f748b2624122935865b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -984,7 +988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07, y: 0.14953473}
   m_AnchorMax: {x: 0.22000001, y: 0.41323265}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
   m_SizeDelta: {x: -19.966, y: -19.652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805026043
@@ -1626,7 +1630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622433140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.427144, y: 6.6994944, z: 14.922794}
+  m_LocalPosition: {x: 1.497241, y: 6.6996126, z: 14.922794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 349859306}
