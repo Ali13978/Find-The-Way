@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1648288709}
   - component: {fileID: 3096652582140288561}
   - component: {fileID: 786270579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shooting Mechanism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 10
   MaxDrag: 5
+  Projectile: {fileID: 0}
 --- !u!120 &786270579
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -161,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6334771557695134490}
   - component: {fileID: 6334771557695134693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +248,7 @@ GameObject:
   - component: {fileID: 6334771558688327769}
   - component: {fileID: 6334771558688327768}
   - component: {fileID: 6334771558688327771}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

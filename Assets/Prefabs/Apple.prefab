@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2465833002959628621}
   - component: {fileID: 2465833002959628620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2465833003479916133}
   - component: {fileID: 2465833003479916135}
   - component: {fileID: 2465833003479916134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
