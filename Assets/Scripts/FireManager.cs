@@ -13,6 +13,7 @@ public class FireManager : MonoBehaviour
     
     Vector3 DragStartPos;
     Touch touch;
+    bool TouchingUiElement = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class FireManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckIfTouchIsOverUIElement();
         if(Input.touchCount>0)
         {
             touch = Input.GetTouch(0);
@@ -29,13 +31,31 @@ public class FireManager : MonoBehaviour
             {
                 DragStart();
             }
+            if(touch.phase == TouchPhase.Ended)
+            {
+                DragRelease();
+            }
             if(touch.phase == TouchPhase.Moved)
             {
                 Dragging();
             }
-            if(touch.phase == TouchPhase.Ended)
+        }
+    }
+
+    private void CheckIfTouchIsOverUIElement()
+    {
+        foreach (Touch touch in Input.touches)
+        {
+            int id = touch.fingerId;
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(id))
             {
-                DragRelease();
+                TouchingUiElement = true;
+                Debug.Log("TouchingUiElement UI Element");
+            }
+            else
+            {
+                TouchingUiElement = false;
+                Debug.Log("Not Touching UI Element");
             }
         }
     }
