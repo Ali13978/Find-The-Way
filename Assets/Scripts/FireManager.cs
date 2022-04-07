@@ -31,13 +31,13 @@ public class FireManager : MonoBehaviour
             {
                 DragStart();
             }
-            if(touch.phase == TouchPhase.Ended)
-            {
-                DragRelease();
-            }
             if(touch.phase == TouchPhase.Moved)
             {
                 Dragging();
+            }
+            if(touch.phase == TouchPhase.Ended)
+            {
+                DragRelease();
             }
         }
     }
