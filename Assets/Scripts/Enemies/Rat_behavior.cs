@@ -5,21 +5,24 @@ using UnityEngine;
 public class Rat_behavior : MonoBehaviour
 {
     #region  Public Variables
-    [SerializeField] Transform RayCast;
-    [SerializeField] LayerMask RayCastMask;
-    [SerializeField] float RayCastLength;
+    [SerializeField] int DamageMin;
+    [SerializeField] int DamageMax;
+    [HideInInspector] private int Damage;
     [SerializeField] float AttackDistance;
     [SerializeField] float MoveSpeed;
     [SerializeField] float Timer;
+    [SerializeField] Transform LeftLimit;
+    [SerializeField] Transform RightLimit;
+    [HideInInspector] public Transform Target;
+    [HideInInspector] public bool InRange;
+    public GameObject HotZone;
+    public GameObject TriggerArea;
     #endregion
 
     #region Private Region
-    private RaycastHit2D hit;
-    private GameObject Target;
     private Animator Anim;
     private float Distance;
     private bool AttackMode;
-    private bool InRange;
     private bool Cooling;
     private float intTimer;
     #endregion
@@ -28,40 +31,42 @@ public class Rat_behavior : MonoBehaviour
 
     private void Awake() 
     {
+        SelectTarget();
         intTimer = Timer;
         Anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if(InRange)
+        if(!InsideOfLimits() && !InRange && !Anim.GetCurrentAnimatorStateInfo(0).IsName("Rat Attack"))
         {
-            hit = Physics2D.Raycast( RayCast.position , Vector2.right , RayCastLength , RayCastMask);
-            RayCastDebugger();
+            SelectTarget();
         }
-        if(hit.collider != null)
+        if(!AttackMode)
+        {
+            Move();
+        }
+        if(InRange)
         {
             EnemyLogic();
         }
+    }
 
-        else if(hit.collider == null)
+    void CoolDown()
+    {
+        Timer -= Time.deltaTime;
+        if (Timer <= 0 && Cooling && AttackMode)
         {
-            InRange = false;
-        }
-
-        if(InRange == false)
-        {
-            Anim.SetBool("IsWalking",false);
-            StopAttacking();
+            Cooling = false;
+            Timer = intTimer;
         }
     }
 
     private void EnemyLogic()
     {
-        Distance = Vector2.Distance(transform.position , Target.transform.position);
+        Distance = Vector2.Distance(transform.position , Target.position);
         if(Distance > AttackDistance)
         {
-            Move();
             StopAttacking();
         }
         else if (AttackDistance >= Distance && Cooling == false)
@@ -71,6 +76,7 @@ public class Rat_behavior : MonoBehaviour
 
         if(Cooling)
         {
+            CoolDown();
             Anim.SetBool("IsAttacking", false);
         }
     }
@@ -80,7 +86,7 @@ public class Rat_behavior : MonoBehaviour
         Anim.SetBool("IsWalking", true);
         if(!Anim.GetCurrentAnimatorStateInfo(0).IsName("Rat Attack"))
         {
-            Vector2 TargetPos = new Vector2(Target.transform.position.x ,transform.position.y);
+            Vector2 TargetPos = new Vector2(Target.position.x ,transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position , TargetPos , MoveSpeed * Time.deltaTime);
         }
     }
@@ -99,24 +105,49 @@ public class Rat_behavior : MonoBehaviour
         AttackMode = false;
         Anim.SetBool("IsAttacking", false);
     }
-    private void OnTriggerEnter2D(Collider2D collision) 
+    public void TriggerCooling()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            Target = collision.gameObject;
-            InRange = true;
-        }
+        Cooling = true;
     }
 
-    private void RayCastDebugger()
+    private bool InsideOfLimits()
     {
-        if(Distance > AttackDistance)
+        return transform.position.x > LeftLimit.position.x && transform.position.x < RightLimit.position.x;
+    }
+
+    public void SelectTarget()
+    {
+        float DistanceToLeft = Vector2.Distance(transform.position , LeftLimit.position);
+        float DistanceToRight = Vector2.Distance(transform.position , RightLimit.position);
+        if(DistanceToLeft > DistanceToRight)
         {
-            Debug.DrawRay(RayCast.position , Vector2.left * RayCastLength , Color.red);
+            Target = LeftLimit;
         }
-        else if(Distance < AttackDistance)
+        else
         {
-            Debug.DrawRay(RayCast.position , Vector2.left * RayCastLength , Color.green);
+            Target = RightLimit;
         }
+
+        FlipSprite();
+    }
+
+    public void FlipSprite()
+    {
+        Vector3 rotation = transform.eulerAngles;
+        if(transform.position.x > Target.position.x)
+        {
+            rotation.y = 180;
+        }
+        else
+        {
+            rotation.y = 0;
+        }
+        transform.eulerAngles = rotation;
+    }
+
+    public void DamagePlayer()
+    {
+        Damage = Random.Range(DamageMin , DamageMax);
+        Target.gameObject.GetComponent<HealthManager>().TakeDamage(Damage);
     }
 }
