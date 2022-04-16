@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98aa31eb4a16cc54e9054dd707d2538c
+guid: b0985366fdb05c14aa41a3bf5bcb6a4d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 21
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -131,9 +131,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 71.66667
-        width: 48.5
-        height: 34.333332
+        y: 2
+        width: 48
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,9 +152,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 49
-        y: 71.66667
-        width: 48.5
-        height: 34.333332
+        y: 2
+        width: 48
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Rat Death_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 36.666668
-        width: 48.5
-        height: 34.333332
+        x: 98
+        y: 2
+        width: 48
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: Rat Death_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1.6666679
-        width: 48.5
-        height: 34.333332
+        x: 147
+        y: 2
+        width: 48
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

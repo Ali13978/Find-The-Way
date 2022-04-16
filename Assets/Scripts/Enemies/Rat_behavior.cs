@@ -137,10 +137,12 @@ public class Rat_behavior : MonoBehaviour
         if(transform.position.x > Target.position.x)
         {
             rotation.y = 180;
+            GetComponent<HealthManager>().MySlider.gameObject.transform.localScale = new Vector3(-0.01f , 0.01f , 0.01f);
         }
         else
         {
             rotation.y = 0;
+            GetComponent<HealthManager>().MySlider.gameObject.transform.localScale = new Vector3(0.01f , 0.01f , 0.01f);
         }
         transform.eulerAngles = rotation;
     }
