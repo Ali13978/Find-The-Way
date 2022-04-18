@@ -44,7 +44,12 @@ public class Rat_behavior : MonoBehaviour
         }
         if(!AttackMode)
         {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             Move();
+        }
+        if(AttackMode)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
         if(InRange)
         {
@@ -151,5 +156,10 @@ public class Rat_behavior : MonoBehaviour
     {
         Damage = Random.Range(DamageMin , DamageMax);
         Target.gameObject.GetComponent<HealthManager>().TakeDamage(Damage);
+    }
+
+    public void EnemyDied()
+    {
+        FindObjectOfType<PlayerHitBox>().DestroyMainTarget();
     }
 }

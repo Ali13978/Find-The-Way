@@ -633,6 +633,7 @@ MonoBehaviour:
   Fill: {fileID: 527983243}
   MySlider: {fileID: 203032552}
   TotalHealth: 10
+  NoOfBars: 1
   StartingHealth: 0
 --- !u!1 &4586518039373022181
 GameObject:

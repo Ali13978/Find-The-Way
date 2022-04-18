@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Enemy
   - Enemy Body
+  - Win Portal
   layers:
   - Default
   - TransparentFX

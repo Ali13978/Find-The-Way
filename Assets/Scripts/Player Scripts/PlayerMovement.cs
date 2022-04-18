@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float MovementSpeed;
     [SerializeField] float JumpSpeed;
+    [SerializeField] TextMeshProUGUI NoOfBarsText;
     
     bool OnGround = false;
 
@@ -14,19 +16,24 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D MyRigidBody;
     Animator MyAnimator;
     Vector2 RespawnPos;
+
+    HealthManager MyHealthManager;
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         MyCapsuleCollider = GetComponent<CapsuleCollider2D>();
         MyRigidBody = GetComponent<Rigidbody2D>();
         RespawnPos = new Vector2(GetComponent<Transform>().position.x, GetComponent<Transform>().position.y);
         MyAnimator = GetComponent<Animator>();
+        MyHealthManager = GetComponent<HealthManager>();
         Cursor.visible = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        NoOfBarsText.text = "X " + MyHealthManager.NoOfBars.ToString();
         CheckGround();
         Movement();
         FlipSprite();
@@ -76,9 +83,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Respawn()
     {
-        GetComponent<HealthManager>().TotalHealth = GetComponent<HealthManager>().StartingHealth;
-        GetComponent<HealthManager>().MySlider.value = GetComponent<HealthManager>().TotalHealth;
-        GetComponent<HealthManager>().Fill.color =GetComponent<HealthManager>().MyGradient.Evaluate(GetComponent<HealthManager>().MySlider.normalizedValue);
+        MyHealthManager.NoOfBars -- ;
+        if(MyHealthManager.NoOfBars <= 0)
+        {
+            FindObjectOfType<WinFailManager>().PlayerLost();
+        }
+        MyHealthManager.TotalHealth = MyHealthManager.StartingHealth;
+        MyHealthManager.MySlider.value = MyHealthManager.TotalHealth;
+        MyHealthManager.Fill.color = MyHealthManager.MyGradient.Evaluate(MyHealthManager.MySlider.normalizedValue);
         transform.position = RespawnPos;
     }
 }

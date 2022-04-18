@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HealthManager : MonoBehaviour
     public Image Fill;
     public Slider MySlider;
     public int TotalHealth;
+    public int NoOfBars;
     [HideInInspector] public int StartingHealth;
 
     private void Start() 
@@ -18,7 +20,6 @@ public class HealthManager : MonoBehaviour
 		MySlider.value = TotalHealth;
 		Fill.color = MyGradient.Evaluate(MySlider.normalizedValue);
     }
-
     public void TakeDamage(int Damage)
     {
         TotalHealth = TotalHealth - Damage;

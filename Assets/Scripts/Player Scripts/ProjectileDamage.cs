@@ -13,9 +13,9 @@ public class ProjectileDamage : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(other.gameObject.tag == "Enemy Body")
+        if(this.gameObject.GetComponent<CircleCollider2D>().IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            Debug.Log("Enemy Hitted");
+            Debug.Log("Enemy Hitted1");
             GameObject Target = other.gameObject.GetComponentInParent<HealthManager>().gameObject;
             GameObject MainTarget = Target.GetComponentInParent<MainRat>().gameObject;
             int Damage = Random.Range(ProjectileMinDamage , ProjectileMaxDamage);
