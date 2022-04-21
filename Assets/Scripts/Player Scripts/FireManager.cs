@@ -1,29 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FireManager : MonoBehaviour
 {
     [SerializeField] float Power = 10f;
     [SerializeField] float MaxDrag = 5f;
+    [SerializeField] int NoOfApples;
+    [SerializeField] TextMeshProUGUI NoOfApplesText;
     [SerializeField] GameObject Projectile;
     
     Rigidbody2D ProjectileRigidBody;
     LineRenderer lr;
-    
     Vector3 DragStartPos;
     Touch touch;
     bool TouchingUiElement = true;
     // Start is called before the first frame update
     void Start()
     {
+        NoOfApplesText.text = "X " + NoOfApples.ToString();
         lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckIfTouchIsOverUIElement();
+        if(NoOfApples<=0)
+        {return;}
         if(Input.touchCount>0)
         {
             touch = Input.GetTouch(0);
@@ -86,6 +90,8 @@ public class FireManager : MonoBehaviour
         Vector3 force = DragStartPos - dragReleasePos;
         Vector3 clampedForce = Vector3.ClampMagnitude(force, MaxDrag) * Power;
         GameObject Apple = Instantiate(Projectile,transform.position,Quaternion.identity);
+        NoOfApples -- ;
+        NoOfApplesText.text ="X " + NoOfApples.ToString();
         Apple.GetComponent<Rigidbody2D>().AddForce(clampedForce, ForceMode2D.Impulse);
     }
 }

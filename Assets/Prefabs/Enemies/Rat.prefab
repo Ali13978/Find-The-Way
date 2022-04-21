@@ -582,7 +582,7 @@ MonoBehaviour:
   DamageMax: 5
   AttackDistance: 1
   MoveSpeed: 2
-  Timer: 1
+  Timer: 1.5
   LeftLimit: {fileID: 0}
   RightLimit: {fileID: 0}
   Target: {fileID: 0}

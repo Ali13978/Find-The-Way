@@ -36,6 +36,7 @@ public class InventoryManager : MonoBehaviour
         SelectedItem = "Health Potion";
         CanvasInventoryItems[2].GetComponent<Image>().color = Color.green;
         InventoryItems[2].SetActive(true);
+        UseButtons[1].SetActive(true);
     }
     public void ManaPotionSelected()
     {

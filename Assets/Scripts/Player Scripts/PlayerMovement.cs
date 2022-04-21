@@ -49,6 +49,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 PlayerVelocity = new Vector2(ControlThrow*MovementSpeed, MyRigidBody.velocity.y);
         MyRigidBody.velocity = PlayerVelocity;
         bool IfPlayerHasHorizontalSpeed = Mathf.Abs(MyRigidBody.velocity.x) > Mathf.Epsilon;
+        if(IfPlayerHasHorizontalSpeed)
+        {
+            if(FindObjectOfType<InventoryManager>().SelectedItem == "Apple")
+            {
+                FindObjectOfType<InventoryManager>().MukaSelected();
+            }
+        }
         MyAnimator.SetBool("IsRunning", IfPlayerHasHorizontalSpeed);
     }
     
@@ -77,6 +84,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!OnGround)
         { return; }
+        if(FindObjectOfType<InventoryManager>().SelectedItem == "Apple")
+        {
+            FindObjectOfType<InventoryManager>().MukaSelected();
+        }
         Vector2 JumpVelocity = new Vector2(0f, JumpSpeed);
         MyRigidBody.velocity += JumpVelocity;
     }

@@ -20,6 +20,14 @@ public class HealthManager : MonoBehaviour
 		MySlider.value = TotalHealth;
 		Fill.color = MyGradient.Evaluate(MySlider.normalizedValue);
     }
+
+    public void increaseHealth(int IncreasedHealth)
+    {
+        TotalHealth += IncreasedHealth;
+		MySlider.value = TotalHealth;
+		Fill.color = MyGradient.Evaluate(MySlider.normalizedValue);
+    }
+
     public void TakeDamage(int Damage)
     {
         TotalHealth = TotalHealth - Damage;
