@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="96" height="32" tilewidth="16" tileheight="16" infinite="1" nextlayerid="25" nextobjectid="1">
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="100" height="32" tilewidth="16" tileheight="16" infinite="1" nextlayerid="27" nextobjectid="18">
  <tileset firstgid="1" source="Level.tsx"/>
  <tileset firstgid="433" source="Box 2.tsx"/>
  <tileset firstgid="437" source="Win.tsx"/>
  <group id="8" name="Background ">
   <group id="6" name="Background Front">
-   <layer id="9" name="Background colour" width="96" height="32">
+   <layer id="9" name="Background colour" width="100" height="32">
     <data encoding="csv">
      <chunk x="0" y="0" width="16" height="16">
 82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,
@@ -225,7 +225,7 @@
 </chunk>
     </data>
    </layer>
-   <layer id="11" name="Walls" width="96" height="32">
+   <layer id="11" name="Walls" width="100" height="32">
     <data encoding="csv">
      <chunk x="32" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -391,7 +391,7 @@
 </chunk>
     </data>
    </layer>
-   <layer id="10" name="Bricks" width="96" height="32">
+   <layer id="10" name="Bricks" width="100" height="32">
     <data encoding="csv">
      <chunk x="16" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -521,7 +521,7 @@
 </chunk>
     </data>
    </layer>
-   <layer id="14" name="Spider Webs" width="96" height="32">
+   <layer id="14" name="Spider Webs" width="100" height="32">
     <data encoding="csv">
      <chunk x="0" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -743,10 +743,10 @@
    </layer>
   </group>
   <group id="15" name="Background Back" opacity="0.6" offsetx="0" offsety="0.5">
-   <layer id="16" name="Background colour" width="96" height="32">
+   <layer id="16" name="Background colour" width="100" height="32">
     <data encoding="csv"/>
    </layer>
-   <layer id="17" name="Walls" width="96" height="32">
+   <layer id="17" name="Walls" width="100" height="32">
     <data encoding="csv">
      <chunk x="32" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -858,7 +858,7 @@
 </chunk>
     </data>
    </layer>
-   <layer id="18" name="Bricks" width="96" height="32">
+   <layer id="18" name="Bricks" width="100" height="32">
     <data encoding="csv">
      <chunk x="48" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -970,7 +970,7 @@
 </chunk>
     </data>
    </layer>
-   <layer id="19" name="Rocks" width="96" height="32">
+   <layer id="19" name="Rocks" width="100" height="32">
     <data encoding="csv">
      <chunk x="0" y="16" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -992,7 +992,7 @@
 </chunk>
     </data>
    </layer>
-   <layer id="20" name="Spider Webs" width="96" height="32">
+   <layer id="20" name="Spider Webs" width="100" height="32">
     <data encoding="csv">
      <chunk x="0" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1214,7 +1214,7 @@
    </layer>
   </group>
  </group>
- <layer id="12" name="Rocks" width="96" height="32">
+ <layer id="12" name="Rocks" width="100" height="32">
   <data encoding="csv">
    <chunk x="32" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1362,7 +1362,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="24" name="Win" width="96" height="32">
+ <layer id="24" name="Win" width="100" height="32">
   <data encoding="csv">
    <chunk x="80" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1384,7 +1384,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="1" name="Path" width="96" height="32">
+ <layer id="1" name="Path" width="100" height="32">
   <data encoding="csv">
    <chunk x="32" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1568,7 +1568,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="2" name="Torchies" width="96" height="32">
+ <layer id="2" name="Torchies" width="100" height="32">
   <data encoding="csv">
    <chunk x="32" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1752,11 +1752,11 @@
 </chunk>
   </data>
  </layer>
- <layer id="3" name="Blocks" width="96" height="32">
+ <layer id="3" name="Blocks" width="100" height="32">
   <data encoding="csv"/>
  </layer>
  <group id="21" name="Forground">
-  <layer id="22" name="Stones" width="96" height="32">
+  <layer id="22" name="Stones" width="100" height="32">
    <data encoding="csv">
     <chunk x="48" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
